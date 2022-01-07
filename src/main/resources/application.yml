@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    url: "jdbc:h2:file:./data/demo"
+    driverClassName: "org.h2.Driver"
+    username: "sa"
+    password: "password"
+  jpa:
+    database-platform: "org.hibernate.dialect.H2Dialect"
+    hibernate:
+      naming:
+        physical-strategy: "org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl"
+      ddl-auto: "update"
+    show-sql: true
+  h2:
+    console.enabled: true
