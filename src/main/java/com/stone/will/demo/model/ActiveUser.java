@@ -1,21 +1,23 @@
 package com.stone.will.demo.model;
 
 import javax.persistence.*;
-
-import static javax.persistence.GenerationType.IDENTITY;
+import java.util.Set;
 
 @Entity(name="USERS")
 public class ActiveUser {
 
     @Id
     @GeneratedValue
-    int id;
+    private int id;
 
     @Column(nullable = false)
-    String username;
+    private String username;
 
     @Column(nullable = false)
-    String password;
+    private String password;
+
+    @OneToMany(mappedBy = "owner", orphanRemoval= true)
+    private Set<WebSitePassword> content;
 
     public int getId() {
         return id;
@@ -39,6 +41,14 @@ public class ActiveUser {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Set<WebSitePassword> getContent() {
+        return content;
+    }
+
+    public void setContent(Set<WebSitePassword> content) {
+        this.content = content;
     }
 
     public ActiveUser(int id, String username, String password) {

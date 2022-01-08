@@ -2,20 +2,30 @@ package com.stone.will.demo.model;
 
 import javax.persistence.*;
 
-import static javax.persistence.GenerationType.IDENTITY;
-
 @Entity(name="PASSWORDS")
 public class WebSitePassword {
 
     @Id
     @GeneratedValue
-    int id;
+    private int id;
+
+    @ManyToOne
+    @JoinColumn(name="owner_id")
+    private ActiveUser owner;
+
+    @Column(nullable = false, unique = true)
+    private String website;
 
     @Column(nullable = false)
-    String websiteName;
+    private String password;
 
-    @Column(nullable = false)
-    String password;
+    public ActiveUser getOwner() {
+        return owner;
+    }
+
+    public void setOwner(ActiveUser owner) {
+        this.owner = owner;
+    }
 
     public int getId() {
         return id;
@@ -25,12 +35,12 @@ public class WebSitePassword {
         this.id = id;
     }
 
-    public String getWebsiteName() {
-        return websiteName;
+    public String getWebsite() {
+        return website;
     }
 
-    public void setWebsiteName(String websiteName) {
-        this.websiteName = websiteName;
+    public void setWebsite(String website) {
+        this.website = website;
     }
 
     public String getPassword() {
@@ -41,9 +51,9 @@ public class WebSitePassword {
         this.password = password;
     }
 
-    public WebSitePassword(int id, String websiteName, String password) {
+    public WebSitePassword(int id, String website, String password) {
         this.id = id;
-        this.websiteName = websiteName;
+        this.website = website;
         this.password = password;
     }
 
