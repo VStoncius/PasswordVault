@@ -2,6 +2,7 @@ package com.stone.will.demo.persistence;
 
 import com.stone.will.demo.model.ActiveUser;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Repository;
 
 @Repository

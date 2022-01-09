@@ -1,5 +1,7 @@
 package com.stone.will.demo.model;
 
+import com.stone.will.demo.DTO.UserDTO;
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -51,10 +53,9 @@ public class ActiveUser {
         this.content = content;
     }
 
-    public ActiveUser(int id, String username, String password) {
-        this.id = id;
-        this.username = username;
-        this.password = password;
+    public ActiveUser(UserDTO userDTO) {
+        this.username = userDTO.getUsername();
+        this.password = userDTO.getPassword();
     }
 
     public ActiveUser() {

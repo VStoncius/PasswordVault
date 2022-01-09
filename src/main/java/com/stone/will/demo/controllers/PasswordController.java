@@ -10,18 +10,19 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController()
+@RestController
+@RequestMapping("/passwords")
 public class PasswordController {
 
     @Autowired
     private PasswordService passwordService;
 
-    @GetMapping("/passwords/all")
+    @GetMapping("/all")
     public List<WebSitePassword> getAll(){
         return passwordService.listAll();
     }
 
-    @PostMapping("/passwords/create")
+    @PostMapping("/create")
     public ResponseEntity<WebsitePasswordDTO> addPassword(@RequestBody WebSitePassword password, @RequestParam String username){
         ResponseEntity<WebsitePasswordDTO> response = new ResponseEntity<WebsitePasswordDTO>(passwordService.addPassword(username, password), HttpStatus.CREATED);
         return response;

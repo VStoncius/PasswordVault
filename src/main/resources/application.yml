@@ -13,3 +13,8 @@ spring:
     show-sql: true
   h2:
     console.enabled: true
+  security:
+    user:
+      password: "Test12345"
+jwt:
+  secret: "mySuperSecret"
