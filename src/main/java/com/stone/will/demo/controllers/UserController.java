@@ -2,7 +2,6 @@ package com.stone.will.demo.controllers;
 
 import com.stone.will.demo.DTO.JwtToken;
 import com.stone.will.demo.DTO.UserDTO;
-import com.stone.will.demo.model.ActiveUser;
 import com.stone.will.demo.security.JwtUtils;
 import com.stone.will.demo.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +9,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
-import org.springframework.security.authentication.DisabledException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
@@ -34,7 +32,7 @@ public class UserController {
     }
 
     @PostMapping("/authenticate")
-    public ResponseEntity<?> createAuthenticationToken(@RequestBody UserDTO authenticationRequest) throws Exception {
+    public ResponseEntity<JwtToken> createAuthenticationToken(@RequestBody UserDTO authenticationRequest) throws Exception {
 
         authenticate(authenticationRequest.getUsername(), authenticationRequest.getPassword());
 

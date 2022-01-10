@@ -4,7 +4,6 @@ import com.stone.will.demo.DTO.WebsitePasswordDTO;
 import com.stone.will.demo.model.ActiveUser;
 import com.stone.will.demo.model.WebSitePassword;
 import com.stone.will.demo.persistence.PasswordRepository;
-import com.stone.will.demo.persistence.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
