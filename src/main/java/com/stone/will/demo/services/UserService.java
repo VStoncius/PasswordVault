@@ -1,5 +1,6 @@
 package com.stone.will.demo.services;
 
+import com.stone.will.demo.DTO.AuthenticationRequest;
 import com.stone.will.demo.DTO.UserDTO;
 import com.stone.will.demo.model.ActiveUser;
 import com.stone.will.demo.persistence.UserRepository;
@@ -44,7 +45,7 @@ public class UserService implements UserDetailsService {
         }
     }
 
-    public ActiveUser saveUser(UserDTO newUser) {
+    public ActiveUser saveUser(AuthenticationRequest newUser) {
         newUser.setPassword(bCryptPasswordEncoder
                 .encode(newUser.getPassword()));
         return userRepo.save(new ActiveUser(newUser));

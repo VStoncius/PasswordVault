@@ -5,16 +5,11 @@ import com.stone.will.demo.model.ActiveUser;
 public class UserDTO {
     private String username;
 
-    private String password;
+    private int id;
 
-    public UserDTO(String username, String password) {
+    public UserDTO(ActiveUser saveUser) {
         this.username = username;
-        this.password = password;
-    }
-
-    public UserDTO(ActiveUser user) {
-        this.username = user.getUsername();
-        this.password = user.getPassword();
+        this.id = id;
     }
 
     public String getUsername() {
@@ -25,11 +20,11 @@ public class UserDTO {
         this.username = username;
     }
 
-    public String getPassword() {
-        return password;
+    public int getId() {
+        return id;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setId(int id) {
+        this.id = id;
     }
 }

@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface PasswordRepository extends JpaRepository<WebSitePassword, Long> {
-    public WebSitePassword findByWebsite(String website);
+    WebSitePassword findByWebsite(String website);
 }

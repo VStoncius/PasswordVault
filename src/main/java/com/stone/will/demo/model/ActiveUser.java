@@ -1,5 +1,6 @@
 package com.stone.will.demo.model;
 
+import com.stone.will.demo.DTO.AuthenticationRequest;
 import com.stone.will.demo.DTO.UserDTO;
 
 import javax.persistence.*;
@@ -53,9 +54,9 @@ public class ActiveUser {
         this.content = content;
     }
 
-    public ActiveUser(UserDTO userDTO) {
-        this.username = userDTO.getUsername();
-        this.password = userDTO.getPassword();
+    public ActiveUser(AuthenticationRequest authenticationRequest) {
+        this.username = authenticationRequest.getUsername();
+        this.password = authenticationRequest.getPassword();
     }
 
     public ActiveUser() {

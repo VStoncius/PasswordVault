@@ -6,6 +6,9 @@ public class WebsitePasswordDTO {
     private int id;
 
     private String website;
+
+    private String password;
+
     public WebsitePasswordDTO(WebSitePassword password) {
         this.id = password.getId();
         this.website = password.getWebsite();
@@ -25,5 +28,13 @@ public class WebsitePasswordDTO {
 
     public void setWebsite(String website) {
         this.website = website;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

@@ -1,5 +1,6 @@
 package com.stone.will.demo.controllers;
 
+import com.stone.will.demo.DTO.AuthenticationRequest;
 import com.stone.will.demo.DTO.JwtToken;
 import com.stone.will.demo.DTO.UserDTO;
 import com.stone.will.demo.security.JwtUtils;
@@ -32,7 +33,7 @@ public class UserController {
     }
 
     @PostMapping("/authenticate")
-    public ResponseEntity<JwtToken> createAuthenticationToken(@RequestBody UserDTO authenticationRequest) throws Exception {
+    public ResponseEntity<JwtToken> createAuthenticationToken(@RequestBody AuthenticationRequest authenticationRequest) throws Exception {
 
         authenticate(authenticationRequest.getUsername(), authenticationRequest.getPassword());
 
@@ -45,7 +46,7 @@ public class UserController {
     }
 
     @PostMapping("/create")
-    public ResponseEntity<UserDTO> createUser(@RequestBody UserDTO newUser){
+    public ResponseEntity<UserDTO> createUser(@RequestBody AuthenticationRequest newUser){
         UserDTO response = new UserDTO(userService.saveUser(newUser));
         return new ResponseEntity(response, HttpStatus.CREATED);
     }
