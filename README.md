@@ -9,7 +9,7 @@ However to create or delete a password you need to authenticate against
 ***localhost:8080/users/authenticate*** with valid username and password combination to receive JWT token, which will be used to authenticate while calling 
 localhost:8080/passwords/** APIs. JWT token is valid for 15 minutes. After which you will need to call localhost:8080/users/authenticate again. 
 
-User passwords are saved in hased form, while website passwords are encrypted before saving to database using symmetric-key encryption.
+User passwords are saved in hashed form, while website passwords are encrypted before saving to database using symmetric-key encryption.
 
 Database source, server port, password encryption/decryption secrets as well as JWT secret can be configured by editing application.yml file
 
